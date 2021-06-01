@@ -6,3 +6,6 @@ C:\Users\KyleB\OneDrive\Documents\GitHub\ArtifactEnsemble\obj\Debug\netstandard2
 C:\Users\KyleB\OneDrive\Documents\GitHub\ArtifactEnsemble\obj\Debug\netstandard2.0\ArtifactEnsemble.csproj.CoreCompileInputs.cache
 C:\Users\KyleB\OneDrive\Documents\GitHub\ArtifactEnsemble\obj\Debug\netstandard2.0\ArtifactEnsemble.dll
 C:\Users\KyleB\OneDrive\Documents\GitHub\ArtifactEnsemble\obj\Debug\netstandard2.0\ArtifactEnsemble.pdb
+C:\Users\KyleB\OneDrive\Documents\GitHub\ArtifactEnsemble\obj\Debug\netstandard2.0\ArtifactEnsemble.csproj.AssemblyReference.cache
+C:\Users\KyleB\OneDrive\Documents\GitHub\ArtifactEnsemble\obj\Debug\netstandard2.0\ArtifactEnsemble.Properties.Resources.resources
+C:\Users\KyleB\OneDrive\Documents\GitHub\ArtifactEnsemble\obj\Debug\netstandard2.0\ArtifactEnsemble.csproj.GenerateResource.cache
