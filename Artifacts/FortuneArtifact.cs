@@ -10,7 +10,7 @@ namespace ArtifactEnsemble
 
         public override string Name => "Artifact of Fortune";
         public override string NameToken => "FORTUNE";
-        public override string Description => "Whenever a blue portal spawns, players' lunar coin counts will be raised to 2-billion";
+        public override string Description => "Whenever a blue portal spawns, each player's lunar coin counts will be raised to 2-billion";
         public override Sprite IconSelectedSprite => CreateSprite(Properties.Resources.money_on, Color.magenta);
         public override Sprite IconDeselectedSprite => CreateSprite(Properties.Resources.money_off, Color.gray);
 

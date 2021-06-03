@@ -12,8 +12,8 @@ namespace ArtifactEnsemble
         public override string Name => "Artifact of Trade";
         public override string NameToken => "TRADE";
         public override string Description => "Starts the run in the Space Bazaar, and spawns the blue portal every stage";
-        public override Sprite IconSelectedSprite => CreateSprite(Properties.Resources.money_on, Color.magenta);
-        public override Sprite IconDeselectedSprite => CreateSprite(Properties.Resources.money_off, Color.gray);
+        public override Sprite IconSelectedSprite => CreateSprite(Properties.Resources.axolotl_on, Color.magenta);
+        public override Sprite IconDeselectedSprite => CreateSprite(Properties.Resources.axolotl_off, Color.gray);
 
         protected override void InitManager()
         {
