@@ -63,6 +63,26 @@ namespace ArtifactEnsemble.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] money_off {
+            get {
+                object obj = ResourceManager.GetObject("money_off", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] money_on {
+            get {
+                object obj = ResourceManager.GetObject("money_on", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] reanimation_off {
             get {
                 object obj = ResourceManager.GetObject("reanimation_off", resourceCulture);
@@ -76,6 +96,26 @@ namespace ArtifactEnsemble.Properties {
         internal static byte[] reanimation_on {
             get {
                 object obj = ResourceManager.GetObject("reanimation_on", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] test_off {
+            get {
+                object obj = ResourceManager.GetObject("test_off", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] test_on {
+            get {
+                object obj = ResourceManager.GetObject("test_on", resourceCulture);
                 return ((byte[])(obj));
             }
         }
