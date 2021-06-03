@@ -3,5 +3,8 @@
     "version_number": "1.0.0",
     "website_url": "https://github.com/ImKyle4815/ArtifactEnsemble",
     "description": "Adds various Artifacts that add an additional layer of configurability to the game.",
-    "dependencies": []
+    "dependencies": [
+    	"bbepis-BepInExPack-5.4.9",
+    	"tristanmcpherson-R2API-3.0.43"
+    ]
 }
