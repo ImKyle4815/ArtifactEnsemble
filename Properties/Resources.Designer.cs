@@ -83,6 +83,26 @@ namespace ArtifactEnsemble.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] bazaar_off {
+            get {
+                object obj = ResourceManager.GetObject("bazaar_off", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] bazaar_on {
+            get {
+                object obj = ResourceManager.GetObject("bazaar_on", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] money_off {
             get {
                 object obj = ResourceManager.GetObject("money_off", resourceCulture);

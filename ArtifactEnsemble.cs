@@ -17,7 +17,7 @@ namespace ArtifactEnsemble
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "ImKyle4815";
         public const string PluginName = "ArtifactEnsemble";
-        public const string PluginVersion = "1.0.0";
+        public const string PluginVersion = "1.1.0";
 
         internal static new BepInEx.Logging.ManualLogSource Logger { get; private set; }
 
@@ -25,6 +25,7 @@ namespace ArtifactEnsemble
         public static ReanimationArtifact reanimationArtifact;
         public static TradeArtifact tradeArtifact;
         public static FortuneArtifact fortuneArtifact;
+        public static BazaarArtifact bazaarArtifact;
 
         public void Awake()
         {
@@ -42,6 +43,7 @@ namespace ArtifactEnsemble
             ArtifactEnsemble.reanimationArtifact = new ReanimationArtifact();
             ArtifactEnsemble.tradeArtifact = new TradeArtifact();
             ArtifactEnsemble.fortuneArtifact = new FortuneArtifact();
+            ArtifactEnsemble.bazaarArtifact = new BazaarArtifact();
 
             //Disables the space bazaar's kickout feature
             On.EntityStates.NewtMonster.KickFromShop.OnEnter += (orig, self) => { };

@@ -42,7 +42,8 @@ namespace ArtifactEnsemble
             }
 
             // do things
-            On.RoR2.TeleporterInteraction.OnInteractionBegin += ReanimatePlayers;
+            On.RoR2.TeleporterInteraction.OnInteractionBegin += ReanimatePlayersOnTP;
+            On.EntityStates.Missions.BrotherEncounter.PreEncounter.OnEnter += ReanimatePlayersOnMithrix;
             ArtifactEnsemble.Logger.LogInfo("Artifact of Reanimation is now enabled.");
         }
 
@@ -54,14 +55,27 @@ namespace ArtifactEnsemble
             }
 
             // undo things
-            On.RoR2.TeleporterInteraction.OnInteractionBegin -= ReanimatePlayers;
+            On.RoR2.TeleporterInteraction.OnInteractionBegin -= ReanimatePlayersOnTP;
+            On.EntityStates.Missions.BrotherEncounter.PreEncounter.OnEnter -= ReanimatePlayersOnMithrix;
             ArtifactEnsemble.Logger.LogInfo("Artifact of Reanimation is now disabled.");
         }
 
-        private static void ReanimatePlayers(On.RoR2.TeleporterInteraction.orig_OnInteractionBegin orig, TeleporterInteraction self, Interactor activator)
+        private static void ReanimatePlayersOnTP(On.RoR2.TeleporterInteraction.orig_OnInteractionBegin orig, TeleporterInteraction self, Interactor activator)
         {
             orig(self, activator);
             ArtifactEnsemble.Logger.LogInfo("Artifact of Reanimation is now reviving players...");
+            ReanimateEachPlayer();
+        }
+
+        private static void ReanimatePlayersOnMithrix(On.EntityStates.Missions.BrotherEncounter.PreEncounter.orig_OnEnter orig, EntityStates.Missions.BrotherEncounter.PreEncounter self)
+        {
+            orig(self);
+            ArtifactEnsemble.Logger.LogInfo("Artifact of Reanimation is now reviving players...");
+            ReanimateEachPlayer();
+        }
+
+        private static void ReanimateEachPlayer()
+        {
             bool flag = (!RoR2Application.isInSinglePlayer || NetworkServer.active) && ArtifactEnsemble.reanimationArtifact.ArtifactEnabled;
             if (flag)
             {
