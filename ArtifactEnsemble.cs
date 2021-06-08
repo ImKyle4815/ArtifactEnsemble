@@ -26,6 +26,7 @@ namespace ArtifactEnsemble
         public static TradeArtifact tradeArtifact;
         public static FortuneArtifact fortuneArtifact;
         public static BazaarArtifact bazaarArtifact;
+        public static RandomArtifact randomArtifact;
 
         public void Awake()
         {
@@ -44,6 +45,7 @@ namespace ArtifactEnsemble
             ArtifactEnsemble.tradeArtifact = new TradeArtifact();
             ArtifactEnsemble.fortuneArtifact = new FortuneArtifact();
             ArtifactEnsemble.bazaarArtifact = new BazaarArtifact();
+            ArtifactEnsemble.randomArtifact = new RandomArtifact();
 
             //Disables the space bazaar's kickout feature
             On.EntityStates.NewtMonster.KickFromShop.OnEnter += (orig, self) => { };
