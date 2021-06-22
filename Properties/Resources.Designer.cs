@@ -103,6 +103,46 @@ namespace ArtifactEnsemble.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] greed_off {
+            get {
+                object obj = ResourceManager.GetObject("greed_off", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] greed_on {
+            get {
+                object obj = ResourceManager.GetObject("greed_on", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] haste_off {
+            get {
+                object obj = ResourceManager.GetObject("haste_off", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] haste_on {
+            get {
+                object obj = ResourceManager.GetObject("haste_on", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] money_off {
             get {
                 object obj = ResourceManager.GetObject("money_off", resourceCulture);
@@ -116,6 +156,26 @@ namespace ArtifactEnsemble.Properties {
         internal static byte[] money_on {
             get {
                 object obj = ResourceManager.GetObject("money_on", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mountain_off {
+            get {
+                object obj = ResourceManager.GetObject("mountain_off", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] mountain_on {
+            get {
+                object obj = ResourceManager.GetObject("mountain_on", resourceCulture);
                 return ((byte[])(obj));
             }
         }

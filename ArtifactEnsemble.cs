@@ -1,4 +1,5 @@
 using BepInEx;
+using BepInEx.Configuration;
 using R2API;
 using R2API.Utils;
 using R2API.Networking;
@@ -7,17 +8,15 @@ namespace ArtifactEnsemble
 {
     //Lists Plugin MetaData
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
-    //R2API's command helper
-    //[R2APISubmoduleDependency(nameof(CommandHelper))]
     //Declare submodule dependencies
-    [R2APISubmoduleDependency(new string[] { nameof(NetworkingAPI), nameof(ArtifactAPI), nameof(LanguageAPI) })]
-
+    [BepInDependency("com.bepis.r2api")]
+    [R2APISubmoduleDependency(new string[] { nameof(NetworkingAPI), nameof(ArtifactAPI), nameof(LanguageAPI), nameof(CommandHelper) })]
     public class ArtifactEnsemble : BaseUnityPlugin
 	{
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "ImKyle4815";
         public const string PluginName = "ArtifactEnsemble";
-        public const string PluginVersion = "1.1.0";
+        public const string PluginVersion = "1.2.0";
 
         internal static new BepInEx.Logging.ManualLogSource Logger { get; private set; }
 
@@ -26,7 +25,10 @@ namespace ArtifactEnsemble
         public static TradeArtifact tradeArtifact;
         public static FortuneArtifact fortuneArtifact;
         public static BazaarArtifact bazaarArtifact;
-        public static RandomArtifact randomArtifact;
+        public static HasteArtifact hasteArtifact;
+        public static GreedArtifact greedArtifact;
+        public static MountainArtifact mountainArtifact;
+        //public static RandomArtifact randomArtifact;
 
         public void Awake()
         {
@@ -45,7 +47,10 @@ namespace ArtifactEnsemble
             ArtifactEnsemble.tradeArtifact = new TradeArtifact();
             ArtifactEnsemble.fortuneArtifact = new FortuneArtifact();
             ArtifactEnsemble.bazaarArtifact = new BazaarArtifact();
-            ArtifactEnsemble.randomArtifact = new RandomArtifact();
+            ArtifactEnsemble.hasteArtifact = new HasteArtifact();
+            ArtifactEnsemble.greedArtifact = new GreedArtifact();
+            ArtifactEnsemble.mountainArtifact = new MountainArtifact();
+            //ArtifactEnsemble.randomArtifact = new RandomArtifact();
 
             //Disables the space bazaar's kickout feature
             On.EntityStates.NewtMonster.KickFromShop.OnEnter += (orig, self) => { };

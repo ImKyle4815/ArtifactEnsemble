@@ -1,5 +1,4 @@
-﻿using System;
-using RoR2;
+﻿using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -62,7 +61,12 @@ namespace ArtifactEnsemble
         {
             foreach (ArtifactDef artifactDef in ArtifactCatalog.artifactDefs)
             {
-                RunArtifactManager.instance.SetArtifactEnabledServer(artifactDef, UnityEngine.Random.Range(0, 1) > 0.5);
+                if (artifactDef.cachedName != "RANDOM")
+                {
+                    bool toggledState = UnityEngine.Random.Range(0f, 1f) > 0.5f;
+                    ArtifactEnsemble.Logger.LogWarning(artifactDef.cachedName);
+                    RunArtifactManager.instance.SetArtifactEnabledServer(artifactDef, toggledState);
+                }
             }
             orig(self);
         }

@@ -130,11 +130,29 @@
   <data name="bazaar_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>bazaar_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="greed_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>greed_off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="greed_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>greed_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="haste_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>haste_off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="haste_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>haste_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="money_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>money_off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="money_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>money_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mountain_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>mountain_off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="mountain_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>mountain_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="reanimation_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>reanimation_off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
