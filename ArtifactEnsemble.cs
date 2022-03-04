@@ -42,7 +42,6 @@ namespace ArtifactEnsemble
             CommandHelper.AddToConsoleWhenReady();
 
             //Initialize artifacts
-            //ArtifactEnsemble.testArtifact = new TestArtifact();
             ArtifactEnsemble.reanimationArtifact = new ReanimationArtifact();
             ArtifactEnsemble.tradeArtifact = new TradeArtifact();
             ArtifactEnsemble.fortuneArtifact = new FortuneArtifact();
