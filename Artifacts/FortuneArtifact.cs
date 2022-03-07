@@ -2,66 +2,20 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace ArtifactEnsemble
+namespace ArtifactEnsemble.Artifacts
 {
-
-    public class FortuneArtifact : NewArtifact<FortuneArtifact>
+    public class FortuneArtifact : ArtifactTemplate
     {
-
-        public override string Name => "Artifact of Fortune";
-        public override string NameToken => "FORTUNE";
-        public override string Description => "Whenever a blue portal spawns, each player's lunar coin counts will be raised to 2-billion";
-        public override Sprite IconSelectedSprite => CreateSprite(Properties.Resources.money_on, Color.magenta);
-        public override Sprite IconDeselectedSprite => CreateSprite(Properties.Resources.money_off, Color.gray);
-
-        protected override void InitManager()
+        public FortuneArtifact()
         {
-            FortuneArtifactManager.Init();
-        }
-    }
-
-    public static class FortuneArtifactManager
-    {
-        private static ArtifactDef myArtifact
-        {
-            get { return FortuneArtifact.Instance.ArtifactDef; }
-        }
-
-        public static void Init()
-        {
-            RunArtifactManager.onArtifactEnabledGlobal += OnArtifactEnabled;
-            RunArtifactManager.onArtifactDisabledGlobal += OnArtifactDisabled;
-        }
-
-        private static void OnArtifactEnabled(RunArtifactManager man, ArtifactDef artifactDef)
-        {
-            if (!NetworkServer.active || artifactDef != myArtifact)
-            {
-                return;
-            }
-
-            // do things
-            ArtifactEnsemble.Logger.LogInfo("Artifact of Fortune is now enabled.");
+            Init("Fortune", "Whenever a blue portal spawns, each player's lunar coin counts will be raised to 2-billion.", Properties.Resources.money_on, Properties.Resources.money_off);
             On.RoR2.TeleporterInteraction.AttemptToSpawnShopPortal += AddLunarCoins;
         }
-
-        private static void OnArtifactDisabled(RunArtifactManager man, ArtifactDef artifactDef)
-        {
-            if (artifactDef != myArtifact)
-            {
-                return;
-            }
-
-            // undo things
-            ArtifactEnsemble.Logger.LogInfo("Artifact of Fortune is now disabled.");
-            On.RoR2.TeleporterInteraction.AttemptToSpawnShopPortal -= AddLunarCoins;
-        }
-
-        private static void AddLunarCoins(On.RoR2.TeleporterInteraction.orig_AttemptToSpawnShopPortal orig, TeleporterInteraction self)
+        private void AddLunarCoins(On.RoR2.TeleporterInteraction.orig_AttemptToSpawnShopPortal orig, TeleporterInteraction self)
         {
             orig(self);
             ArtifactEnsemble.Logger.LogInfo("Adding lunar coins...");
-            if (ArtifactEnsemble.fortuneArtifact.ArtifactEnabled)
+            if (this.Enabled())
             {
                 foreach (NetworkUser networkUser in NetworkUser.readOnlyInstancesList)
                 {

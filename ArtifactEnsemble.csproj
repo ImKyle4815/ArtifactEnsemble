@@ -13,6 +13,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="ArtifactEnsembleConfig.cs" />
+    <Compile Remove="Artifacts\RandomArtifact.cs" />
+    <Compile Remove="ArtifactToggler.cs" />
+    <Compile Remove="NewArtifact.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.0.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="BepInEx.Core" Version="5.4.19" />
+    <PackageReference Include="RiskOfRain2.GameLibs" Version="1.2.1-r.0" />
+    <PackageReference Include="UnityEngine.Modules" Version="2019.4.26" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>libs\Assembly-CSharp.dll</HintPath>
       <Private>false</Private>
@@ -192,6 +209,7 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>libs\UnityEngine.Networking.dll</HintPath>
       <Private>false</Private>
+      <Aliases>UnityEngineNetworking</Aliases>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>libs\UnityEngine.ParticleSystemModule.dll</HintPath>

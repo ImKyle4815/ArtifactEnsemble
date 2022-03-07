@@ -1,81 +1,29 @@
-﻿using System;
-using RoR2;
-using UnityEngine;
-using UnityEngine.Networking;
+﻿using RoR2;
 
-namespace ArtifactEnsemble
+namespace ArtifactEnsemble.Artifacts
 {
-
-    public class TradeArtifact : NewArtifact<TradeArtifact>
+    class TradeArtifact : ArtifactTemplate
     {
-
-        public override string Name => "Artifact of Trade";
-        public override string NameToken => "TRADE";
-        public override string Description => "Starts the run in the Space Bazaar, and spawns the blue portal every stage";
-        public override Sprite IconSelectedSprite => CreateSprite(Properties.Resources.axolotl_on, Color.magenta);
-        public override Sprite IconDeselectedSprite => CreateSprite(Properties.Resources.axolotl_off, Color.gray);
-
-        protected override void InitManager()
-        {
-            TradeArtifactManager.Init();
-        }
-    }
-
-    public static class TradeArtifactManager
-    {
-        private static ArtifactDef myArtifact
-        {
-            get { return TradeArtifact.Instance.ArtifactDef; }
-        }
-
-        public static void Init()
-        {
-            RunArtifactManager.onArtifactEnabledGlobal += OnArtifactEnabled;
-            RunArtifactManager.onArtifactDisabledGlobal += OnArtifactDisabled;
-        }
-
-        private static void OnArtifactEnabled(RunArtifactManager man, ArtifactDef artifactDef)
-        {
-            if (!NetworkServer.active || artifactDef != myArtifact)
-            {
-                return;
-            }
-
-            // do things
+        public TradeArtifact() {
+            Init("Trade", "Starts in the Bazaar, and forces the blue portal to spawn every stage.", Properties.Resources.axolotl_on, Properties.Resources.axolotl_off);
             On.RoR2.Run.Start += StartInBazaar;
             On.RoR2.TeleporterInteraction.AttemptToSpawnAllEligiblePortals += ForceBluePortal;
-            ArtifactEnsemble.Logger.LogInfo("Artifact of Trade is now enabled.");
         }
-
-        private static void OnArtifactDisabled(RunArtifactManager man, ArtifactDef artifactDef)
-        {
-            if (artifactDef != myArtifact)
-            {
-                return;
-            }
-
-            // undo things
-            On.RoR2.Run.Start -= StartInBazaar;
-            On.RoR2.TeleporterInteraction.AttemptToSpawnAllEligiblePortals -= ForceBluePortal;
-            ArtifactEnsemble.Logger.LogInfo("Artifact of Trade is now disabled.");
-        }
-
-        private static void StartInBazaar(On.RoR2.Run.orig_Start orig, RoR2.Run self)
+        private void StartInBazaar(On.RoR2.Run.orig_Start orig, RoR2.Run self)
         {
             orig(self);
-            ArtifactEnsemble.Logger.LogInfo("Artifact of Trade is changing the first scene to the bazaar");
-            if (ArtifactEnsemble.tradeArtifact.ArtifactEnabled)
+            if (this.Enabled())
             {
-                ArtifactEnsemble.Logger.LogInfo("Starting in the Bazaar.");
                 SceneField sceneField = new SceneField("bazaar");
-                NetworkManager.singleton.ServerChangeScene(sceneField);
+                UnityEngine.Networking.NetworkManager.singleton.ServerChangeScene(sceneField);
             }
         }
-
-        private static void ForceBluePortal(On.RoR2.TeleporterInteraction.orig_AttemptToSpawnAllEligiblePortals orig, TeleporterInteraction self)
+        private void ForceBluePortal(On.RoR2.TeleporterInteraction.orig_AttemptToSpawnAllEligiblePortals orig, TeleporterInteraction self)
         {
-            ArtifactEnsemble.Logger.LogInfo("Forcing the blue portal to spawn.");
-            self.shouldAttemptToSpawnShopPortal = true;
+            if (this.Enabled())
+            {
+                self.shouldAttemptToSpawnShopPortal = true;
+            }
             orig(self);
         }
     }

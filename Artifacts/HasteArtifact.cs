@@ -2,24 +2,34 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace ArtifactEnsemble
+namespace ArtifactEnsemble.Artifacts
 {
-
-    public class HasteArtifact : NewArtifact<HasteArtifact>
+    public class HasteArtifact : ArtifactTemplate
     {
-
-        public override string Name => "Artifact of Haste";
-        public override string NameToken => "HASTE";
-        public override string Description => "Makes scrapping/printing faster";
-        public override Sprite IconSelectedSprite => CreateSprite(Properties.Resources.haste_on, Color.magenta);
-        public override Sprite IconDeselectedSprite => CreateSprite(Properties.Resources.haste_off, Color.gray);
-
-        protected override void InitManager()
+        public HasteArtifact()
         {
-            HasteArtifactManager.Init();
+            Init("Haste", "Makes scrapping/printing faster.", Properties.Resources.haste_on, Properties.Resources.haste_off);
+            On.EntityStates.Duplicator.Duplicating.DropDroplet += fasterDropDroplet;
+            On.EntityStates.Duplicator.Duplicating.BeginCooking += fasterBeginCooking;
+        }
+
+        private void fasterDropDroplet(On.EntityStates.Duplicator.Duplicating.orig_DropDroplet orig, EntityStates.Duplicator.Duplicating self)
+        {
+            orig(self);
+            if (NetworkServer.active)
+            {
+                self.outer.GetComponent<PurchaseInteraction>().Networkavailable = true;
+            }
+        }
+        private void fasterBeginCooking(On.EntityStates.Duplicator.Duplicating.orig_BeginCooking orig, EntityStates.Duplicator.Duplicating self)
+        {
+            if (!NetworkServer.active)
+            {
+                orig(self);
+            }
         }
     }
-
+    /*
     public static class HasteArtifactManager
     {
         private static ArtifactDef myArtifact
@@ -69,21 +79,5 @@ namespace ArtifactEnsemble
             On.EntityStates.Duplicator.Duplicating.BeginCooking -= fasterBeginCooking;
             ArtifactEnsemble.Logger.LogInfo("Artifact of Haste is now disabled.");
         }
-
-        private static void fasterDropDroplet(On.EntityStates.Duplicator.Duplicating.orig_DropDroplet orig, EntityStates.Duplicator.Duplicating self)
-        {
-            orig(self);
-            if (NetworkServer.active)
-            {
-                self.outer.GetComponent<PurchaseInteraction>().Networkavailable = true;
-            }
-        }
-        private static void fasterBeginCooking(On.EntityStates.Duplicator.Duplicating.orig_BeginCooking orig, EntityStates.Duplicator.Duplicating self)
-        {
-            if (!NetworkServer.active)
-            {
-                orig(self);
-            }
-        }
-    }
+    }*/
 }
