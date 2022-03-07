@@ -3,9 +3,8 @@ using UnityEngine;
 using UnityEngine.Networking;
 using R2API.Utils;
 
-namespace ArtifactEnsemble
+namespace ArtifactEnsemble.Artifacts
 {
-
     public class ReanimationArtifact : ArtifactTemplate
     {
         public ReanimationArtifact()
