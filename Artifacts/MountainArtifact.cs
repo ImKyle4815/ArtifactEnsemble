@@ -18,7 +18,7 @@ namespace ArtifactEnsemble.Artifacts
             if (this.Enabled())
             {
                 int numberOfMountainShrines = (Run.instance.stageClearCount / Run.stagesPerLoop) + 1;
-                for (int i = 0; i < numberOfMountainShrines * 1; i++)
+                for (int i = 0; i < numberOfMountainShrines * ArtifactEnsembleConfig.MountainCount.Value; i++)
                 {
                     self.AddShrineStack();
                 }

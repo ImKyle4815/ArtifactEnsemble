@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="ArtifactEnsembleConfig.cs" />
+    <Compile Remove="Artifacts\HasteArtifact.cs" />
     <Compile Remove="Artifacts\RandomArtifact.cs" />
     <Compile Remove="ArtifactToggler.cs" />
     <Compile Remove="NewArtifact.cs" />
