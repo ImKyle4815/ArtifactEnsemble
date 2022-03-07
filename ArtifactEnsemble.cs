@@ -43,7 +43,7 @@ namespace ArtifactEnsemble
             new BazaarArtifact();
             new FortuneArtifact();
             new GreedArtifact();
-            new HasteArtifact();
+            //new HasteArtifact();
             new MountainArtifact();
             new ReanimationArtifact();
             new TradeArtifact();
