@@ -5,6 +5,13 @@ namespace ArtifactEnsemble
     public static class ArtifactEnsembleConfig
     {
         public static ConfigEntry<bool> UseBazaarArtifact { get; set; }
+        public static ConfigEntry<bool> SpawnBazaarScrapper { get; set; }
+        public static ConfigEntry<bool> SpawnBazaarCleansingPool { get; set; }
+        public static ConfigEntry<bool> SpawnBazaarVoidChest { get; set; }
+
+        public static ConfigEntry<bool> UseCorruptionArtifact { get; set; }
+        public static ConfigEntry<bool> SpawnCorruptionLunarPod { get; set; }
+        public static ConfigEntry<bool> SpawnCorruptionVoidChest { get; set; }
 
         public static ConfigEntry<bool> UseFortuneArtifact { get; set; }
 
@@ -20,6 +27,13 @@ namespace ArtifactEnsemble
         public static void Init(ConfigFile config)
         {
             UseBazaarArtifact = config.Bind<bool>("Artifact of Bazaar", "Enable artifact", true);
+            SpawnBazaarScrapper = config.Bind<bool>("Artifact of Bazaar", "Spawn Scrapper", true);
+            SpawnBazaarCleansingPool = config.Bind<bool>("Artifact of Bazaar", "Spawn Cleansing Pool", true);
+            SpawnBazaarVoidChest = config.Bind<bool>("Artifact of Bazaar", "Spawn Void Chest", true);
+
+            UseCorruptionArtifact = config.Bind<bool>("Artifact of Corruption", "Enable artifact", true);
+            SpawnCorruptionLunarPod = config.Bind<bool>("Artifact of Corruption", "Spawn Lunar Pod", true);
+            SpawnCorruptionVoidChest = config.Bind<bool>("Artifact of Corruption", "Spawn Void Chest", true);
 
             UseFortuneArtifact = config.Bind<bool>("Artifact of Fortune", "Enable artifact", true);
 

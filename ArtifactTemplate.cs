@@ -3,8 +3,6 @@ using R2API;
 using UnityEngine;
 using BepInEx.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ArtifactEnsemble
 {
@@ -32,7 +30,7 @@ namespace ArtifactEnsemble
 
 		public bool Enabled()
         {
-			return RunArtifactManager.instance.IsArtifactEnabled(artifact.artifactIndex);
+			return RunArtifactManager.instance.IsArtifactEnabled(artifact.artifactIndex) && UnityEngine.Networking.NetworkServer.active;
 		}
 
 		public static Sprite CreateSprite(byte[] resourceBytes, Color fallbackColor)

@@ -17,37 +17,33 @@ namespace ArtifactEnsemble.Artifacts
         private void ReanimatePlayersOnTP(On.RoR2.TeleporterInteraction.orig_OnInteractionBegin orig, TeleporterInteraction self, Interactor activator)
         {
             orig(self, activator);
-            ArtifactEnsemble.Logger.LogInfo("Artifact of Reanimation is now reviving players...");
-            ReanimateEachPlayer();
+            if (this.Enabled())
+            {
+                ArtifactEnsemble.Logger.LogInfo("Artifact of Reanimation is now reviving players...");
+                ReanimateEachPlayer();
+            }
         }
 
         private void ReanimatePlayersOnMithrix(On.EntityStates.Missions.BrotherEncounter.PreEncounter.orig_OnEnter orig, EntityStates.Missions.BrotherEncounter.PreEncounter self)
         {
             orig(self);
-            ArtifactEnsemble.Logger.LogInfo("Artifact of Reanimation is now reviving players...");
-            ReanimateEachPlayer();
+            if (this.Enabled())
+            {
+                ArtifactEnsemble.Logger.LogInfo("Artifact of Reanimation is now reviving players...");
+                ReanimateEachPlayer();
+            }
         }
 
         private void ReanimateEachPlayer()
         {
-            bool flag = (!RoR2Application.isInSinglePlayer || NetworkServer.active);//&& ArtifactEnsemble.reanimationArtifact.ArtifactEnabled;
-            if (flag)
+            if (RoR2Application.isInSinglePlayer || !NetworkServer.active) return;
+            foreach (RoR2.PlayerCharacterMasterController player in RoR2.PlayerCharacterMasterController.instances)
             {
-                foreach (NetworkUser networkUser in NetworkUser.readOnlyInstancesList)
+                if (player.master.IsDeadAndOutOfLivesServer())
                 {
-                    bool isActiveAndEnabled = networkUser.isActiveAndEnabled;
-                    if (isActiveAndEnabled)
-                    {
-                        bool flag2 = !networkUser.master.GetBody() || networkUser.master.IsDeadAndOutOfLivesServer() || !networkUser.master.GetBody().healthComponent.alive;
-                        if (flag2)
-                        {
-                            Vector3 fieldValue = Reflection.GetFieldValue<Vector3>(networkUser.master, "deathFootPosition");
-                            Quaternion rotation = networkUser.master.transform.rotation;
-                            networkUser.master.Respawn(fieldValue, rotation);
-                        }
-                    }
+                    player.master.RespawnExtraLife();
                 }
-            }
+            }    
         }
     }
 }

@@ -14,7 +14,7 @@ using ArtifactEnsemble.Artifacts;
 namespace ArtifactEnsemble
 {
     //Lists Plugin MetaData
-    [BepInPlugin("ImKyle4815.ArtifactEnsemble", "ArtifactEnsemble", "2.0.1")]
+    [BepInPlugin("ImKyle4815.ArtifactEnsemble", "ArtifactEnsemble", "2.1.0")]
     //Declare submodule dependencies
     [BepInDependency("com.bepis.r2api")]
     [R2API.Utils.R2APISubmoduleDependency(nameof(NetworkingAPI), nameof(LanguageAPI), nameof(CommandHelper))]
@@ -22,6 +22,7 @@ namespace ArtifactEnsemble
     public class ArtifactEnsemble : BaseUnityPlugin
 	{
         internal static new BepInEx.Logging.ManualLogSource Logger { get; private set; }
+        internal static Xoroshiro128Plus rng = new Xoroshiro128Plus((ulong) DateTime.Now.Ticks);
 
         public void Awake()
         {
@@ -36,6 +37,7 @@ namespace ArtifactEnsemble
 
             //Initialize artifacts
             if (ArtifactEnsembleConfig.UseBazaarArtifact.Value) new BazaarArtifact();
+            if (ArtifactEnsembleConfig.UseCorruptionArtifact.Value) new CorruptionArtifact();
             if (ArtifactEnsembleConfig.UseFortuneArtifact.Value) new FortuneArtifact();
             if (ArtifactEnsembleConfig.UseGreedArtifact.Value) new GreedArtifact();
             //if (ArtifactEnsembleConfig.UseBazaarArtifact.Value) new HasteArtifact();
