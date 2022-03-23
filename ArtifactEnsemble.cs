@@ -10,6 +10,7 @@ using System.Reflection;
 using UnityEngine;
 using RoR2;
 using ArtifactEnsemble.Artifacts;
+using UnityEngine.Networking;
 
 namespace ArtifactEnsemble
 {
@@ -52,6 +53,38 @@ namespace ArtifactEnsemble
         private void ConfigInit()
         {
 
+        }
+
+        public static void TrySpawn(string path, Vector3 pos, Vector3 ang, DirectorPlacementRule.PlacementMode placeMode = DirectorPlacementRule.PlacementMode.Direct)
+        {
+            // Director stuff
+            var directorPlacementRule = new DirectorPlacementRule
+            {
+                placementMode = DirectorPlacementRule.PlacementMode.Direct
+            };
+            
+            var spawnCard = Resources.Load<InteractableSpawnCard>(path);
+            if (!spawnCard)
+            {
+                ArtifactEnsemble.Logger.LogWarning($"Spawner failed to load spawn card with path \"{path}\"");
+                return;
+            }
+            
+            spawnCard.skipSpawnWhenSacrificeArtifactEnabled = false;// Override since we want this to show here
+            var spawnRequest = new DirectorSpawnRequest(spawnCard, directorPlacementRule, Run.instance.runRNG);
+            var spawnResult = spawnCard.DoSpawn(pos, Quaternion.identity, spawnRequest);
+            var spawnedInstance = spawnResult.spawnedInstance;
+            
+            if (!spawnResult.success|| ReferenceEquals(spawnedInstance, null))
+            {
+                ArtifactEnsemble.Logger.LogWarning($"Spawning object with path \"{path}\" failed");
+                return;
+            }
+            
+            spawnedInstance.transform.eulerAngles = ang;
+            
+            if(NetworkServer.active)
+                NetworkServer.Spawn(spawnedInstance);
         }
     }
 }
