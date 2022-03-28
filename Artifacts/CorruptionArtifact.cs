@@ -23,9 +23,9 @@ namespace ArtifactEnsemble.Artifacts
                 {
                     if (player.master.IsDeadAndOutOfLivesServer()) continue;
                     if (ArtifactEnsembleConfig.SpawnCorruptionLunarPod.Value && waveIndex % 2 == 0)
-                        TrySpawn("SpawnCards/InteractableSpawnCard/iscLunarChest",player.body.footPosition, Vector3.zero, DirectorPlacementRule.PlacementMode.Approximate);
+                        TrySpawn("SpawnCards/InteractableSpawnCard/iscLunarChest",player.body.footPosition, Vector3.zero, DirectorPlacementRule.PlacementMode.Approximate, true);
                     if (ArtifactEnsembleConfig.SpawnCorruptionVoidChest.Value && waveIndex % 5 == 0)
-                        TrySpawn("SpawnCards/InteractableSpawnCard/iscVoidChest",player.body.footPosition, Vector3.zero, DirectorPlacementRule.PlacementMode.Approximate);
+                        TrySpawn("SpawnCards/InteractableSpawnCard/iscVoidChest",player.body.footPosition, Vector3.zero, DirectorPlacementRule.PlacementMode.Approximate, true);
                 }
             }
             orig(self);

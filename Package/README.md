@@ -3,7 +3,7 @@ A Risk of Rain 2 Mod that adds various Artifacts that add an additional layer of
 
 ## Artifacts:
 - Artifact of Bazaar:
-    Adds a scrapper and cleansing pool to the bazaar.
+    Adds a scrapper, cleansing pool, and void chest to the bazaar.
 - Artifact of Corruption:
     Spawns a Lunar Pod after waves 2, 4, 8, and 10, and a Void Chest every 5 waves for each player (Simulacrum only).
 - Artifact of Fortune:

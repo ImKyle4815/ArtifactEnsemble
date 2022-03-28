@@ -55,7 +55,7 @@ namespace ArtifactEnsemble
 
         }
 
-        public static void TrySpawn(string path, Vector3 pos, Vector3 ang, DirectorPlacementRule.PlacementMode placeMode = DirectorPlacementRule.PlacementMode.Direct)
+        public static void TrySpawn(string path, Vector3 pos, Vector3 ang, DirectorPlacementRule.PlacementMode placeMode = DirectorPlacementRule.PlacementMode.Direct, bool ground = false)
         {
             // Director stuff
             var directorPlacementRule = new DirectorPlacementRule
@@ -69,10 +69,21 @@ namespace ArtifactEnsemble
                 ArtifactEnsemble.Logger.LogWarning($"Spawner failed to load spawn card with path \"{path}\"");
                 return;
             }
+
+            //calculate ground pos
+            Vector3 spawnPos = pos;
+            if (ground)
+            {
+                RaycastHit raycastHit;
+                if (Physics.Raycast(new Ray(spawnPos, Vector3.down), out raycastHit, float.MaxValue, LayerIndex.world.mask, QueryTriggerInteraction.Ignore))
+                {
+                    spawnPos = new Vector3?(raycastHit.point) ?? spawnPos;
+                }
+            }
             
-            spawnCard.skipSpawnWhenSacrificeArtifactEnabled = false;// Override since we want this to show here
+            spawnCard.skipSpawnWhenSacrificeArtifactEnabled = false; // Override since we want this to show here
             var spawnRequest = new DirectorSpawnRequest(spawnCard, directorPlacementRule, Run.instance.runRNG);
-            var spawnResult = spawnCard.DoSpawn(pos, Quaternion.identity, spawnRequest);
+            var spawnResult = spawnCard.DoSpawn(spawnPos, Quaternion.identity, spawnRequest);
             var spawnedInstance = spawnResult.spawnedInstance;
             
             if (!spawnResult.success|| ReferenceEquals(spawnedInstance, null))
