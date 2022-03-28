@@ -15,7 +15,7 @@ using UnityEngine.Networking;
 namespace ArtifactEnsemble
 {
     //Lists Plugin MetaData
-    [BepInPlugin("ImKyle4815.ArtifactEnsemble", "ArtifactEnsemble", "2.1.0")]
+    [BepInPlugin("ImKyle4815.ArtifactEnsemble", "ArtifactEnsemble", "2.1.1")]
     //Declare submodule dependencies
     [BepInDependency("com.bepis.r2api")]
     [R2API.Utils.R2APISubmoduleDependency(nameof(NetworkingAPI), nameof(LanguageAPI), nameof(CommandHelper))]
