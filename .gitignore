@@ -26,3 +26,4 @@ bld/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+Package/Package.zip
