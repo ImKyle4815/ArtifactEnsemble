@@ -13,9 +13,9 @@ A Risk of Rain 2 Mod that adds various Artifacts that add an additional layer of
 - Artifact of Summit:
     Automatically activates one mountain shrine every stage, plus an additional for each completed loop.
 - Artifact of Reanimation:
-    All dead players are revived at the beginning of each teleporter event.
+    Revives all dead players at the beginning of each teleporter event.
 - Artifact of Trade:
-    Starts the run in the space bazaar, and spawns the blue portal every stage.
+    Spawns the blue portal every stage.
 
 ## Other Features:
 - No bazaar kickout:

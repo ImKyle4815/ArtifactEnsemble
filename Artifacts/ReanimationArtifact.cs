@@ -9,7 +9,7 @@ namespace ArtifactEnsemble.Artifacts
     {
         public ReanimationArtifact()
         {
-            Init("Reanimation", "Reanimates dead players at the beginning of the teleporter event.", Properties.Resources.reanimation_on, Properties.Resources.reanimation_off);
+            Init("Reanimation", "Revives all dead players at the beginning of each teleporter event.", Properties.Resources.reanimation_on, Properties.Resources.reanimation_off);
             On.RoR2.TeleporterInteraction.OnInteractionBegin += ReanimatePlayersOnTP;
             On.EntityStates.Missions.BrotherEncounter.PreEncounter.OnEnter += ReanimatePlayersOnMithrix;
         }
