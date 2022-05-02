@@ -1,6 +1,6 @@
 {
     "name": "ArtifactEnsemble",
-    "version_number": "2.1.2",
+    "version_number": "2.2.2",
     "website_url": "https://github.com/ImKyle4815/ArtifactEnsemble",
     "description": "Adds various Artifacts that add an additional layer of configurability to the game.",
     "dependencies": [

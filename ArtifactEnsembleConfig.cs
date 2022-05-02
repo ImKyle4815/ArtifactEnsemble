@@ -20,6 +20,8 @@ namespace ArtifactEnsemble
         public static ConfigEntry<bool> UseMountainArtifact { get; set; }
         public static ConfigEntry<int> MountainCount { get; set; }
 
+        public static ConfigEntry<bool> UseNoBossNoWaitArtifact { get; set; }
+
         public static ConfigEntry<bool> UseReanimationArtifact { get; set; }
 
         public static ConfigEntry<bool> UseTradeArtifact { get; set; }
@@ -41,6 +43,8 @@ namespace ArtifactEnsemble
 
             UseMountainArtifact = config.Bind<bool>("Artifact of Summit", "Enable artifact", true);
             MountainCount = config.Bind<int>("Artifact of Summit", "Mountain Shrine Count", 1);
+
+            UseNoBossNoWaitArtifact = config.Bind<bool>("Artifact of Passage", "Enable artifact", true);
 
             UseReanimationArtifact = config.Bind<bool>("Artifact of Reanimation", "Enable artifact", true);
 

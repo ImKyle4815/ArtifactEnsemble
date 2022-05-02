@@ -10,6 +10,8 @@ A Risk of Rain 2 Mod that adds various Artifacts that add an additional layer of
     Every time a blue portal spawns, each player's lunar coin count will be increased to 2-billion.
 - Artifact of Greed:
     Allows multiple scavenger bags to fall each stage.
+- Artifact of Passage:
+    Charges the teleporter upon killing the boss. Still progresses time appropriately.
 - Artifact of Summit:
     Automatically activates one mountain shrine every stage, plus an additional for each completed loop.
 - Artifact of Reanimation:

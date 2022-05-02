@@ -15,7 +15,7 @@ using UnityEngine.Networking;
 namespace ArtifactEnsemble
 {
     //Lists Plugin MetaData
-    [BepInPlugin("ImKyle4815.ArtifactEnsemble", "ArtifactEnsemble", "2.1.2")]
+    [BepInPlugin("ImKyle4815.ArtifactEnsemble", "ArtifactEnsemble", "2.2.2")]
     //Declare submodule dependencies
     [BepInDependency("com.bepis.r2api")]
     [R2API.Utils.R2APISubmoduleDependency(nameof(NetworkingAPI), nameof(LanguageAPI), nameof(CommandHelper))]
@@ -43,16 +43,12 @@ namespace ArtifactEnsemble
             if (ArtifactEnsembleConfig.UseGreedArtifact.Value) new GreedArtifact();
             //if (ArtifactEnsembleConfig.UseBazaarArtifact.Value) new HasteArtifact();
             if (ArtifactEnsembleConfig.UseMountainArtifact.Value) new MountainArtifact();
+            if (ArtifactEnsembleConfig.UseNoBossNoWaitArtifact.Value) new NoBossNoWaitArtifact();
             if (ArtifactEnsembleConfig.UseReanimationArtifact.Value) new ReanimationArtifact();
             if (ArtifactEnsembleConfig.UseTradeArtifact.Value) new TradeArtifact();
 
             //Disables the space bazaar's kickout feature
             On.EntityStates.NewtMonster.KickFromShop.OnEnter += (orig, self) => { };
-        }
-
-        private void ConfigInit()
-        {
-
         }
 
         public static void TrySpawn(string path, Vector3 pos, Vector3 ang, DirectorPlacementRule.PlacementMode placeMode = DirectorPlacementRule.PlacementMode.Direct, bool ground = false)

@@ -203,6 +203,26 @@ namespace ArtifactEnsemble.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] nobossnowait_off {
+            get {
+                object obj = ResourceManager.GetObject("nobossnowait_off", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] nobossnowait_on {
+            get {
+                object obj = ResourceManager.GetObject("nobossnowait_on", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] reanimation_off {
             get {
                 object obj = ResourceManager.GetObject("reanimation_off", resourceCulture);

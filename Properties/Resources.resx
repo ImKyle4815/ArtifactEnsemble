@@ -160,6 +160,12 @@
   <data name="mountain_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>mountain_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="nobossnowait_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>nobossnowait_off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="nobossnowait_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>nobossnowait_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="reanimation_off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>reanimation_off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
